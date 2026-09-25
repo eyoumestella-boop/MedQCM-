@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MedQCM — Plateforme PASS/LAS</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">Med<span>QCM</span></div>
+    <nav id="nav" class="hidden">
+      <button data-page="dashboard">Tableau de bord</button>
+      <button data-page="courses">Mes cours</button>
+      <button data-page="practice">Réviser</button>
+      <button data-page="exam">Examen</button>
+      <button data-page="stats">Statistiques</button>
+      <button id="logout" class="ghost">Déconnexion</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="authPage" class="page">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">PASS • LAS • MÉDECINE</p>
+          <h1>Transforme tes cours en entraînement.</h1>
+          <p class="lead">Importe tes cours, construis ta banque de QCM, entraîne-toi et retrouve tes résultats sur ton compte.</p>
+        </div>
+        <div class="auth-card">
+          <div class="tabs"><button id="loginTab" class="active">Connexion</button><button id="registerTab">Créer un compte</button></div>
+          <form id="authForm">
+            <label>E-mail<input id="email" type="email" required></label>
+            <label>Mot de passe<input id="password" type="password" minlength="8" required></label>
+            <button class="primary" type="submit" id="authSubmit">Se connecter</button>
+          </form>
+          <p id="authMsg" class="msg"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardPage" class="page hidden">
+      <div class="page-head"><div><p class="eyebrow">ESPACE PERSONNEL</p><h2>Tableau de bord</h2></div><button class="primary" onclick="showPage('courses')">+ Ajouter un cours</button></div>
+      <div id="dashStats" class="cards"></div>
+      <div class="panel"><h3>Mes cours</h3><div id="dashCourses"></div></div>
+    </section>
+
+    <section id="coursesPage" class="page hidden">
+      <div class="page-head"><div><p class="eyebrow">BIBLIOTHÈQUE</p><h2>Mes cours</h2></div></div>
+      <div class="panel">
+        <h3>Ajouter un cours</h3>
+        <form id="courseForm" class="upload-grid">
+          <label>Titre<input id="courseTitle" placeholder="Ex. Biologie cellulaire"></label>
+          <label>PDF (20 Mo max)<input id="coursePdf" type="file" accept="application/pdf"></label>
+          <label class="full">Ou colle le cours<textarea id="courseText" rows="6" placeholder="Tu peux aussi coller ton cours ici…"></textarea></label>
+          <button class="primary" type="submit">Enregistrer le cours</button>
+        </form>
+        <p id="courseMsg" class="msg"></p>
+      </div>
+      <div id="courseList" class="course-list"></div>
+    </section>
+
+    <section id="coursePage" class="page hidden">
+      <button class="back" onclick="showPage('courses')">← Mes cours</button>
+      <div id="courseDetail"></div>
+    </section>
+
+    <section id="practicePage" class="page hidden">
+      <div class="page-head"><div><p class="eyebrow">ENTRAÎNEMENT</p><h2>Réviser</h2></div></div>
+      <div id="practiceArea" class="panel"></div>
+    </section>
+
+    <section id="examPage" class="page hidden">
+      <div class="page-head"><div><p class="eyebrow">CONDITIONS D'ÉPREUVE</p><h2>Examen</h2></div></div>
+      <div id="examArea" class="panel"></div>
+    </section>
+
+    <section id="statsPage" class="page hidden">
+      <div class="page-head"><div><p class="eyebrow">PROGRESSION</p><h2>Statistiques</h2></div></div>
+      <div id="statsArea"></div>
+    </section>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

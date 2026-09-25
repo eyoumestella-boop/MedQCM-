@@ -1,0 +1,20 @@
+{
+  "name": "medqcm-v6",
+  "version": "6.1.0",
+  "private": true,
+  "description": "MedQCM — plateforme web de QCM médicaux",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "multer": "^2.0.2",
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.16.3",
+    "connect-pg-simple": "^10.0.0"
+  }
+}
